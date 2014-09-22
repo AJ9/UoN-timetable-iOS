@@ -14,6 +14,7 @@
 		592569D519D0AB9200D4ADAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592569D419D0AB9200D4ADAA /* Images.xcassets */; };
 		592569D819D0AB9200D4ADAA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592569D619D0AB9200D4ADAA /* LaunchScreen.xib */; };
 		592569E419D0AB9200D4ADAA /* UON_TimetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592569E319D0AB9200D4ADAA /* UON_TimetableTests.m */; };
+		59256A2719D0B3E800D4ADAA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59256A2619D0B3E800D4ADAA /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		592569DD19D0AB9200D4ADAA /* UON TimetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UON TimetableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		592569E219D0AB9200D4ADAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592569E319D0AB9200D4ADAA /* UON_TimetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UON_TimetableTests.m; sourceTree = "<group>"; };
+		59256A2519D0B3E800D4ADAA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		59256A2619D0B3E800D4ADAA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		592569C619D0AB9200D4ADAA /* UON Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				59256A2419D0B3DA00D4ADAA /* Screens */,
 				592569CB19D0AB9200D4ADAA /* AppDelegate.h */,
 				592569CC19D0AB9200D4ADAA /* AppDelegate.m */,
 				592569CE19D0AB9200D4ADAA /* ViewController.h */,
@@ -117,6 +121,15 @@
 				592569E219D0AB9200D4ADAA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		59256A2419D0B3DA00D4ADAA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				59256A2519D0B3E800D4ADAA /* AboutViewController.h */,
+				59256A2619D0B3E800D4ADAA /* AboutViewController.m */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +251,7 @@
 			files = (
 				592569D019D0AB9200D4ADAA /* ViewController.m in Sources */,
 				592569CD19D0AB9200D4ADAA /* AppDelegate.m in Sources */,
+				59256A2719D0B3E800D4ADAA /* AboutViewController.m in Sources */,
 				592569CA19D0AB9200D4ADAA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
