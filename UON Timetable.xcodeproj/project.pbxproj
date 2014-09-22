@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		592569CA19D0AB9200D4ADAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592569C919D0AB9200D4ADAA /* main.m */; };
+		592569CD19D0AB9200D4ADAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592569CC19D0AB9200D4ADAA /* AppDelegate.m */; };
+		592569D019D0AB9200D4ADAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592569CF19D0AB9200D4ADAA /* ViewController.m */; };
+		592569D319D0AB9200D4ADAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592569D119D0AB9200D4ADAA /* Main.storyboard */; };
+		592569D519D0AB9200D4ADAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592569D419D0AB9200D4ADAA /* Images.xcassets */; };
+		592569D819D0AB9200D4ADAA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592569D619D0AB9200D4ADAA /* LaunchScreen.xib */; };
+		592569E419D0AB9200D4ADAA /* UON_TimetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592569E319D0AB9200D4ADAA /* UON_TimetableTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		592569DE19D0AB9200D4ADAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 592569BC19D0AB9200D4ADAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 592569C319D0AB9200D4ADAA;
+			remoteInfo = "UON Timetable";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		592569C419D0AB9200D4ADAA /* UON Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UON Timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		592569C819D0AB9200D4ADAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		592569C919D0AB9200D4ADAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		592569CB19D0AB9200D4ADAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		592569CC19D0AB9200D4ADAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		592569CE19D0AB9200D4ADAA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		592569CF19D0AB9200D4ADAA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		592569D219D0AB9200D4ADAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		592569D419D0AB9200D4ADAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		592569D719D0AB9200D4ADAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		592569DD19D0AB9200D4ADAA /* UON TimetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UON TimetableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		592569E219D0AB9200D4ADAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		592569E319D0AB9200D4ADAA /* UON_TimetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UON_TimetableTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		592569C119D0AB9200D4ADAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592569DA19D0AB9200D4ADAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		592569BB19D0AB9200D4ADAA = {
+			isa = PBXGroup;
+			children = (
+				592569C619D0AB9200D4ADAA /* UON Timetable */,
+				592569E019D0AB9200D4ADAA /* UON TimetableTests */,
+				592569C519D0AB9200D4ADAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		592569C519D0AB9200D4ADAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				592569C419D0AB9200D4ADAA /* UON Timetable.app */,
+				592569DD19D0AB9200D4ADAA /* UON TimetableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		592569C619D0AB9200D4ADAA /* UON Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				592569CB19D0AB9200D4ADAA /* AppDelegate.h */,
+				592569CC19D0AB9200D4ADAA /* AppDelegate.m */,
+				592569CE19D0AB9200D4ADAA /* ViewController.h */,
+				592569CF19D0AB9200D4ADAA /* ViewController.m */,
+				592569D119D0AB9200D4ADAA /* Main.storyboard */,
+				592569D419D0AB9200D4ADAA /* Images.xcassets */,
+				592569D619D0AB9200D4ADAA /* LaunchScreen.xib */,
+				592569C719D0AB9200D4ADAA /* Supporting Files */,
+			);
+			path = "UON Timetable";
+			sourceTree = "<group>";
+		};
+		592569C719D0AB9200D4ADAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				592569C819D0AB9200D4ADAA /* Info.plist */,
+				592569C919D0AB9200D4ADAA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		592569E019D0AB9200D4ADAA /* UON TimetableTests */ = {
+			isa = PBXGroup;
+			children = (
+				592569E319D0AB9200D4ADAA /* UON_TimetableTests.m */,
+				592569E119D0AB9200D4ADAA /* Supporting Files */,
+			);
+			path = "UON TimetableTests";
+			sourceTree = "<group>";
+		};
+		592569E119D0AB9200D4ADAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				592569E219D0AB9200D4ADAA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		592569C319D0AB9200D4ADAA /* UON Timetable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592569E719D0AB9200D4ADAA /* Build configuration list for PBXNativeTarget "UON Timetable" */;
+			buildPhases = (
+				592569C019D0AB9200D4ADAA /* Sources */,
+				592569C119D0AB9200D4ADAA /* Frameworks */,
+				592569C219D0AB9200D4ADAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UON Timetable";
+			productName = "UON Timetable";
+			productReference = 592569C419D0AB9200D4ADAA /* UON Timetable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		592569DC19D0AB9200D4ADAA /* UON TimetableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592569EA19D0AB9200D4ADAA /* Build configuration list for PBXNativeTarget "UON TimetableTests" */;
+			buildPhases = (
+				592569D919D0AB9200D4ADAA /* Sources */,
+				592569DA19D0AB9200D4ADAA /* Frameworks */,
+				592569DB19D0AB9200D4ADAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				592569DF19D0AB9200D4ADAA /* PBXTargetDependency */,
+			);
+			name = "UON TimetableTests";
+			productName = "UON TimetableTests";
+			productReference = 592569DD19D0AB9200D4ADAA /* UON TimetableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		592569BC19D0AB9200D4ADAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = AJ9;
+				TargetAttributes = {
+					592569C319D0AB9200D4ADAA = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					592569DC19D0AB9200D4ADAA = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 592569C319D0AB9200D4ADAA;
+					};
+				};
+			};
+			buildConfigurationList = 592569BF19D0AB9200D4ADAA /* Build configuration list for PBXProject "UON Timetable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 592569BB19D0AB9200D4ADAA;
+			productRefGroup = 592569C519D0AB9200D4ADAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				592569C319D0AB9200D4ADAA /* UON Timetable */,
+				592569DC19D0AB9200D4ADAA /* UON TimetableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		592569C219D0AB9200D4ADAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592569D319D0AB9200D4ADAA /* Main.storyboard in Resources */,
+				592569D819D0AB9200D4ADAA /* LaunchScreen.xib in Resources */,
+				592569D519D0AB9200D4ADAA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592569DB19D0AB9200D4ADAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		592569C019D0AB9200D4ADAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592569D019D0AB9200D4ADAA /* ViewController.m in Sources */,
+				592569CD19D0AB9200D4ADAA /* AppDelegate.m in Sources */,
+				592569CA19D0AB9200D4ADAA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592569D919D0AB9200D4ADAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592569E419D0AB9200D4ADAA /* UON_TimetableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		592569DF19D0AB9200D4ADAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 592569C319D0AB9200D4ADAA /* UON Timetable */;
+			targetProxy = 592569DE19D0AB9200D4ADAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		592569D119D0AB9200D4ADAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				592569D219D0AB9200D4ADAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		592569D619D0AB9200D4ADAA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				592569D719D0AB9200D4ADAA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		592569E519D0AB9200D4ADAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		592569E619D0AB9200D4ADAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		592569E819D0AB9200D4ADAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "UON Timetable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		592569E919D0AB9200D4ADAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "UON Timetable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		592569EB19D0AB9200D4ADAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UON TimetableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UON Timetable.app/UON Timetable";
+			};
+			name = Debug;
+		};
+		592569EC19D0AB9200D4ADAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UON TimetableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UON Timetable.app/UON Timetable";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		592569BF19D0AB9200D4ADAA /* Build configuration list for PBXProject "UON Timetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592569E519D0AB9200D4ADAA /* Debug */,
+				592569E619D0AB9200D4ADAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592569E719D0AB9200D4ADAA /* Build configuration list for PBXNativeTarget "UON Timetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592569E819D0AB9200D4ADAA /* Debug */,
+				592569E919D0AB9200D4ADAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592569EA19D0AB9200D4ADAA /* Build configuration list for PBXNativeTarget "UON TimetableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592569EB19D0AB9200D4ADAA /* Debug */,
+				592569EC19D0AB9200D4ADAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 592569BC19D0AB9200D4ADAA /* Project object */;
+}
