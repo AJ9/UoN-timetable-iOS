@@ -126,6 +126,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 592569E719D0AB9200D4ADAA /* Build configuration list for PBXNativeTarget "UON Timetable" */;
 			buildPhases = (
+				592569ED19D0AC3200D4ADAA /* ShellScript */,
 				592569C019D0AB9200D4ADAA /* Sources */,
 				592569C119D0AB9200D4ADAA /* Frameworks */,
 				592569C219D0AB9200D4ADAA /* Resources */,
@@ -213,6 +214,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		592569ED19D0AC3200D4ADAA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=`echo $buildNumber +1|bc`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		592569C019D0AB9200D4ADAA /* Sources */ = {
