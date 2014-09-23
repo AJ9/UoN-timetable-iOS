@@ -7,6 +7,10 @@
 //
 
 #import "AboutViewController.h"
+#import "AboutItem.h"
+#import "AboutSection.h"
+#import "UIView+Borders.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AboutViewController ()
 
@@ -24,14 +28,16 @@
 {
     [super viewDidLoad];
     
+    //Populate the array for the TableView
+    [self populateTableViewData];
+    
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
     //Set up font
     cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     
-    //Populate the array for the TableView
-    [self populateTableViewData];
     
     //Set the TableView details:
     numberOfSections = 4;
@@ -55,11 +61,60 @@
 
 -(void) populateTableViewData{
     tableData = [[NSMutableArray alloc]init];
-    int numberOfItems = 1;
-    for(int i = 0; i < numberOfItems ; i++ ){
-        NSString * item = [NSString stringWithFormat:@"Item %i", i];
-        [tableData addObject:item];
-    }
+    
+    
+    //Section 1
+    
+    AboutSection *section1 = [[AboutSection alloc]init];
+    section1.sectionTitle = @"Open Sourced";
+   
+    AboutItem * openSourcedText = [[AboutItem alloc]initWithText:@"This project is open source and contributions are welcome at the following repositiories." andButtonText:nil andButtonLink:nil];
+    [section1.items addObject:openSourcedText];
+    
+    AboutItem * androidRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"Android Repo"     andButtonLink:nil];
+    
+    [section1.items addObject:androidRepo];
+    
+    AboutItem * iOSRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"iOS Repo"     andButtonLink:nil];
+    
+    [section1.items addObject:iOSRepo];
+    
+    AboutItem * APIRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"API Repo"     andButtonLink:nil];
+    
+    [section1.items addObject:APIRepo];
+    
+    [tableData addObject:section1];
+    
+    //Section 2
+    
+    AboutSection *section2 = [[AboutSection alloc]init];
+    section2.sectionTitle = @"Licence";
+    
+    AboutItem * licenceText = [[AboutItem alloc]initWithText:@"Project is licenced under the MIT licence which can be found on the GitHub repo." andButtonText:nil andButtonLink:nil];
+    [section2.items addObject:licenceText];
+    
+    [tableData addObject:section2];
+    
+    //Section 3
+    
+    AboutSection *section3 = [[AboutSection alloc]init];
+    section3.sectionTitle = @"App Info";
+    
+    AboutItem * applicationInfoText = [[AboutItem alloc]initWithText:@"The API & Android app is created by Ryan Shaw, iOS has been created by Adam Gask." andButtonText:nil andButtonLink:nil];
+    [section3.items addObject:applicationInfoText];
+    
+    [tableData addObject:section3];
+    
+    //Section 4
+    
+    AboutSection *section4 = [[AboutSection alloc]init];
+    section4.sectionTitle = @"Data";
+    
+    AboutItem * clearData = [[AboutItem alloc]initWithText:nil andButtonText:@"Clear data" andButtonLink:nil];
+    [section4.items addObject:clearData];
+    
+    [tableData addObject:section4];
+    
 }
 
 
@@ -69,15 +124,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //The identifier for the cell is set in the storyboard
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+   // //The identifier for the cell is set in the storyboard
+    //NSString * celltext = [NSString stringWithFormat:@"cell row %ld & section %ld", (long)indexPath.row, (long)indexPath.section];
     
-    // Configure the cell...
-    //NSString * stringForRow = [tableData objectAtIndex:indexPath.row];
-    NSString * stringForRow = @"This project is open source and contributions are welcome at the following repositiories.";
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = stringForRow;
+    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:nil];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+
+    /*
+    UITableViewCell *cell;
+     if (cell == nil) {
+         cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+     }*/
+    
+    AboutSection * currentSection = [tableData objectAtIndex:indexPath.section];
+    AboutItem * currentItem = [currentSection.items objectAtIndex:indexPath.row];
+    
+    if (currentItem.text != nil) {
+        NSString * stringForRow = currentItem.text;
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.text = stringForRow;
+    }
+    else {
+        UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        float padding = 10;
+        float width = tableView.frame.size.width  ; //- (padding*2);
+        cellButton.frame = CGRectMake(padding, 5, width - (padding *2), 50);
+        //cellButton.backgroundColor = [UIColor redColor];
+       // [[cellButton layer] setBorderWidth:borderWidth];
+        //[[cellButton layer] setBorderColor:[UIColor greenColor].CGColor];
+        [cellButton setTitle:currentItem.buttonText forState:UIControlStateNormal];
+        [cell.contentView addSubview:cellButton];
+    }
+    
+   
     return cell;
 }
 
@@ -85,19 +167,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return numberOfSections;
+    return tableData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     
-    if (section == 0) {
-        return 3;
-    }
-    else{
-        return 1;
-    }
+    AboutSection * currentSection = [tableData objectAtIndex:section];
+    
+    return currentSection.items.count;
     
 }
 
@@ -129,43 +208,32 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSString * header;
+    AboutSection * currentSection = [tableData objectAtIndex:section];
     
-    switch (section) {
-        case 0:
-            header = @"Open Sourced";
-            break;
-            
-        case 1:
-            header = @"Licence";
-            break;
-            
-        case 2:
-            header = @"App Info";
-            break;
-            
-        case 3:
-            header = @"Data";
-            break;
-            
-        default:
-            break;
-    }
-    
-    return header;
+    return currentSection.sectionTitle;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellText = @"This project is open source and contributions are welcome at the following repositiories.";
+    AboutSection * currentSection = [tableData objectAtIndex:indexPath.section];
+    AboutItem * currentItem = [currentSection.items objectAtIndex:indexPath.row];
     
-    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGRect labelSize;
     
-    
-    CGRect labelSize = [cellText boundingRectWithSize:constraintSize
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{NSFontAttributeName:cellFont}
-                                              context:nil];
+    if (currentItem.text != nil) {
+        NSString *cellText = currentItem.text;
+        
+        CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+        
+        
+        labelSize = [cellText boundingRectWithSize:constraintSize
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:cellFont}
+                                                  context:nil];
+    }
+    else {
+        labelSize.size.height = 40;
+    }
     
     
     return labelSize.size.height + 20;
