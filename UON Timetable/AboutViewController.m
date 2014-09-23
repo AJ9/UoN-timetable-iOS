@@ -7,6 +7,10 @@
 //
 
 #import "AboutViewController.h"
+#import "AboutItem.h"
+#import "AboutSection.h"
+#import "UIView+Borders.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AboutViewController ()
 
@@ -17,17 +21,23 @@
     int numberOfSections;
     int headerHeight;
     int rowHeight;
+    UIFont *cellFont;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //Populate the array for the TableView
+    [self populateTableViewData];
+    
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    //Populate the array for the TableView
-    [self populateTableViewData];
+    //Set up font
+    cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+    
     
     //Set the TableView details:
     numberOfSections = 4;
@@ -51,11 +61,59 @@
 
 -(void) populateTableViewData{
     tableData = [[NSMutableArray alloc]init];
-    int numberOfItems = 1;
-    for(int i = 0; i < numberOfItems ; i++ ){
-        NSString * item = [NSString stringWithFormat:@"Item %i", i];
-        [tableData addObject:item];
-    }
+    
+    //Section 1
+    
+    AboutSection *section1 = [[AboutSection alloc]init];
+    section1.sectionTitle = @"Open Sourced";
+   
+    AboutItem * openSourcedText = [[AboutItem alloc]initWithText:@"This project is open source and contributions are welcome at the following repositiories." andButtonText:nil andButtonLink:nil];
+    [section1.items addObject:openSourcedText];
+    
+    AboutItem * APIRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"API Repo"     andButtonLink:@"https://github.com/ryanshawty/UoN-timetable-scraper/commits?author=ryanshawty"];
+    
+    [section1.items addObject:APIRepo];
+    
+    AboutItem * iOSRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"iOS Repo"     andButtonLink:@"https://github.com/AJ9/UoN-timetable-iOS"];
+    
+    [section1.items addObject:iOSRepo];
+    
+    AboutItem * webAppRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"Web App Repo"     andButtonLink:@"https://github.com/ryanshawty/UoN-timetable-app"];
+    
+    [section1.items addObject:webAppRepo];
+    
+    [tableData addObject:section1];
+    
+    //Section 2
+    
+    AboutSection *section2 = [[AboutSection alloc]init];
+    section2.sectionTitle = @"Licence";
+    
+    AboutItem * licenceText = [[AboutItem alloc]initWithText:@"Project is licenced under the MIT licence which can be found on the GitHub repo." andButtonText:nil andButtonLink:nil];
+    [section2.items addObject:licenceText];
+    
+    [tableData addObject:section2];
+    
+    //Section 3
+    
+    AboutSection *section3 = [[AboutSection alloc]init];
+    section3.sectionTitle = @"App Info";
+    
+    AboutItem * applicationInfoText = [[AboutItem alloc]initWithText:@"The API & Android app is created by Ryan Shaw, iOS has been created by Adam Gask." andButtonText:nil andButtonLink:nil];
+    [section3.items addObject:applicationInfoText];
+    
+    [tableData addObject:section3];
+    
+    //Section 4
+    
+    AboutSection *section4 = [[AboutSection alloc]init];
+    section4.sectionTitle = @"Data";
+    
+    AboutItem * clearData = [[AboutItem alloc]initWithText:nil andButtonText:@"Clear data" andButtonLink:nil];
+    [section4.items addObject:clearData];
+    
+    [tableData addObject:section4];
+    
 }
 
 
@@ -65,64 +123,129 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //The identifier for the cell is set in the storyboard
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+   // //The identifier for the cell is set in the storyboard
+    //NSString * celltext = [NSString stringWithFormat:@"cell row %ld & section %ld", (long)indexPath.row, (long)indexPath.section];
     
-    // Configure the cell...
-    NSString * stringForRow = [tableData objectAtIndex:indexPath.row];
+    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:nil];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+
+    /*
+    UITableViewCell *cell;
+     if (cell == nil) {
+         cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+     }*/
     
-    cell.textLabel.text = stringForRow;
+    AboutSection * currentSection = [tableData objectAtIndex:indexPath.section];
+    AboutItem * currentItem = [currentSection.items objectAtIndex:indexPath.row];
+    
+    if (currentItem.text != nil) {
+        NSString * stringForRow = currentItem.text;
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.text = stringForRow;
+    }
+    else {
+        UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        float padding = 10;
+        float width = tableView.frame.size.width;
+        cellButton.frame = CGRectMake(padding, 5, width - (padding *2), 50);
+        [cellButton setTitle:currentItem.buttonText forState:UIControlStateNormal];
+        [cellButton addTarget:self action:@selector(openLink:)     forControlEvents:UIControlEventTouchUpInside];
+        cellButton.accessibilityHint = currentItem.buttonLink;
+        
+        [cell.contentView addSubview:cellButton];
+    }
+    
+   
     return cell;
+}
+
+
+-(void)openLink: (id) sender {
+    NSLog(@"openLink");
+    UIButton *temp = (UIButton*) sender;
+NSString * link =     temp.accessibilityHint;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return numberOfSections;
+    return tableData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [tableData count];
+    
+    AboutSection * currentSection = [tableData objectAtIndex:section];
+    
+    return currentSection.items.count;
+    
 }
 
 
 
 #pragma  mark - Table view delegate methods
 
+/*
+ -(UIView *) tableView:(UITableView *)tableView
+ viewForHeaderInSection:(NSInteger)section
+ {
+ 
+ NSLog(@"Width = %f", tableView.frame.size.width);
+ 
+ UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerHeight)];
+ l.backgroundColor = [UIColor grayColor];
+ l.font = [UIFont systemFontOfSize:24];
+ l.textColor = [UIColor whiteColor];
+ l.textAlignment = NSTextAlignmentCenter;
+ 
+ NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+ 
+ NSMutableAttributedString * attString =[[NSMutableAttributedString alloc] initWithString:@"About" attributes:underlineAttribute];
+ 
+ l.attributedText=attString;
+ 
+ return nil;
+ }*/
 
--(UIView *) tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSLog(@"Width = %f", tableView.frame.size.width);
+    AboutSection * currentSection = [tableData objectAtIndex:section];
     
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerHeight)];
-    l.backgroundColor = [UIColor grayColor];
-    l.font = [UIFont systemFontOfSize:24];
-    l.textColor = [UIColor whiteColor];
-    l.textAlignment = NSTextAlignmentCenter;
-    
-    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-    
-    NSMutableAttributedString * attString =[[NSMutableAttributedString alloc] initWithString:@"About" attributes:underlineAttribute];
-    
-    l.attributedText=attString;
-    
-    return nil;
+    return currentSection.sectionTitle;
 }
-
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return rowHeight;
+    AboutSection * currentSection = [tableData objectAtIndex:indexPath.section];
+    AboutItem * currentItem = [currentSection.items objectAtIndex:indexPath.row];
     
+    CGRect labelSize;
+    
+    if (currentItem.text != nil) {
+        NSString *cellText = currentItem.text;
+        
+        CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+        
+        
+        labelSize = [cellText boundingRectWithSize:constraintSize
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:cellFont}
+                                                  context:nil];
+    }
+    else {
+        labelSize.size.height = 40;
+    }
+    
+    
+    return labelSize.size.height + 20;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
