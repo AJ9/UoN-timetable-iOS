@@ -92,7 +92,7 @@
 
 #pragma  mark - Table view delegate methods
 
-
+/*
 -(UIView *) tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section
 {
@@ -112,9 +112,35 @@ viewForHeaderInSection:(NSInteger)section
     l.attributedText=attString;
     
     return nil;
+}*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    NSString * header;
+    
+    switch (section) {
+        case 0:
+            header = @"Open Sourced";
+            break;
+            
+        case 1:
+            header = @"Licence";
+            break;
+            
+        case 2:
+            header = @"App Info";
+            break;
+            
+        case 3:
+            header = @"Data";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return header;
 }
-
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
