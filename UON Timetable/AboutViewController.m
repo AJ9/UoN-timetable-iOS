@@ -17,6 +17,7 @@
     int numberOfSections;
     int headerHeight;
     int rowHeight;
+    UIFont *cellFont;
 }
 
 - (void)viewDidLoad
@@ -25,6 +26,9 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+    //Set up font
+    cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     
     //Populate the array for the TableView
     [self populateTableViewData];
@@ -69,8 +73,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSString * stringForRow = [tableData objectAtIndex:indexPath.row];
-    
+    //NSString * stringForRow = [tableData objectAtIndex:indexPath.row];
+    NSString * stringForRow = @"This project is open source and contributions are welcome at the following repositiories.";
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = stringForRow;
     return cell;
 }
@@ -85,7 +91,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [tableData count];
+    
+    if (section == 0) {
+        return 3;
+    }
+    else{
+        return 1;
+    }
+    
 }
 
 
@@ -93,26 +106,26 @@
 #pragma  mark - Table view delegate methods
 
 /*
--(UIView *) tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section
-{
-    
-    NSLog(@"Width = %f", tableView.frame.size.width);
-    
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerHeight)];
-    l.backgroundColor = [UIColor grayColor];
-    l.font = [UIFont systemFontOfSize:24];
-    l.textColor = [UIColor whiteColor];
-    l.textAlignment = NSTextAlignmentCenter;
-    
-    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-    
-    NSMutableAttributedString * attString =[[NSMutableAttributedString alloc] initWithString:@"About" attributes:underlineAttribute];
-    
-    l.attributedText=attString;
-    
-    return nil;
-}*/
+ -(UIView *) tableView:(UITableView *)tableView
+ viewForHeaderInSection:(NSInteger)section
+ {
+ 
+ NSLog(@"Width = %f", tableView.frame.size.width);
+ 
+ UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerHeight)];
+ l.backgroundColor = [UIColor grayColor];
+ l.font = [UIFont systemFontOfSize:24];
+ l.textColor = [UIColor whiteColor];
+ l.textAlignment = NSTextAlignmentCenter;
+ 
+ NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+ 
+ NSMutableAttributedString * attString =[[NSMutableAttributedString alloc] initWithString:@"About" attributes:underlineAttribute];
+ 
+ l.attributedText=attString;
+ 
+ return nil;
+ }*/
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
@@ -142,13 +155,21 @@ viewForHeaderInSection:(NSInteger)section
     return header;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return rowHeight;
+    NSString *cellText = @"This project is open source and contributions are welcome at the following repositiories.";
     
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    
+    
+    CGRect labelSize = [cellText boundingRectWithSize:constraintSize
+                                              options:NSStringDrawingUsesLineFragmentOrigin
+                                           attributes:@{NSFontAttributeName:cellFont}
+                                              context:nil];
+    
+    
+    return labelSize.size.height + 20;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
