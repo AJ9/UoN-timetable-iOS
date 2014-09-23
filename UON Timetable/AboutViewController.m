@@ -62,7 +62,6 @@
 -(void) populateTableViewData{
     tableData = [[NSMutableArray alloc]init];
     
-    
     //Section 1
     
     AboutSection *section1 = [[AboutSection alloc]init];
@@ -71,17 +70,17 @@
     AboutItem * openSourcedText = [[AboutItem alloc]initWithText:@"This project is open source and contributions are welcome at the following repositiories." andButtonText:nil andButtonLink:nil];
     [section1.items addObject:openSourcedText];
     
-    AboutItem * androidRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"Android Repo"     andButtonLink:nil];
+    AboutItem * APIRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"API Repo"     andButtonLink:@"https://github.com/ryanshawty/UoN-timetable-scraper/commits?author=ryanshawty"];
     
-    [section1.items addObject:androidRepo];
+    [section1.items addObject:APIRepo];
     
-    AboutItem * iOSRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"iOS Repo"     andButtonLink:nil];
+    AboutItem * iOSRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"iOS Repo"     andButtonLink:@"https://github.com/AJ9/UoN-timetable-iOS"];
     
     [section1.items addObject:iOSRepo];
     
-    AboutItem * APIRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"API Repo"     andButtonLink:nil];
+    AboutItem * webAppRepo = [[AboutItem alloc]initWithText:nil andButtonText:@"Web App Repo"     andButtonLink:@"https://github.com/ryanshawty/UoN-timetable-app"];
     
-    [section1.items addObject:APIRepo];
+    [section1.items addObject:webAppRepo];
     
     [tableData addObject:section1];
     
@@ -150,17 +149,26 @@
     else {
         UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         float padding = 10;
-        float width = tableView.frame.size.width  ; //- (padding*2);
+        float width = tableView.frame.size.width;
         cellButton.frame = CGRectMake(padding, 5, width - (padding *2), 50);
-        //cellButton.backgroundColor = [UIColor redColor];
-       // [[cellButton layer] setBorderWidth:borderWidth];
-        //[[cellButton layer] setBorderColor:[UIColor greenColor].CGColor];
         [cellButton setTitle:currentItem.buttonText forState:UIControlStateNormal];
+        [cellButton addTarget:self action:@selector(openLink:)     forControlEvents:UIControlEventTouchUpInside];
+        cellButton.accessibilityHint = currentItem.buttonLink;
+        
         [cell.contentView addSubview:cellButton];
     }
     
    
     return cell;
+}
+
+
+-(void)openLink: (id) sender {
+    NSLog(@"openLink");
+    UIButton *temp = (UIButton*) sender;
+NSString * link =     temp.accessibilityHint;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+
 }
 
 
