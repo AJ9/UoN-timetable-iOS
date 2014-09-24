@@ -18,6 +18,9 @@
 		59256A2719D0B3E800D4ADAA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59256A2619D0B3E800D4ADAA /* AboutViewController.m */; };
 		59A25BAC19D1F72D00A14372 /* AboutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A25BAB19D1F72D00A14372 /* AboutSection.m */; };
 		59A25BAF19D1FE3800A14372 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A25BAE19D1FE3800A14372 /* UIView+Borders.m */; };
+		59A25BB719D2C29100A14372 /* setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A25BB519D2C29100A14372 /* setup.png */; };
+		59A25BB819D2C29100A14372 /* setup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A25BB619D2C29100A14372 /* setup@2x.png */; };
+		59A25BBD19D2C5E500A14372 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A25BBC19D2C5E500A14372 /* SetUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,10 @@
 		59A25BAB19D1F72D00A14372 /* AboutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutSection.m; sourceTree = "<group>"; };
 		59A25BAD19D1FE3800A14372 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
 		59A25BAE19D1FE3800A14372 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
+		59A25BB519D2C29100A14372 /* setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setup.png; path = images/setup.png; sourceTree = "<group>"; };
+		59A25BB619D2C29100A14372 /* setup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setup@2x.png"; path = "images/setup@2x.png"; sourceTree = "<group>"; };
+		59A25BBB19D2C5E500A14372 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		59A25BBC19D2C5E500A14372 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +100,7 @@
 		592569C619D0AB9200D4ADAA /* UON Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				59A25BB419D2C27500A14372 /* Images */,
 				59A25BB019D1FE3C00A14372 /* UIView+ */,
 				59256A2419D0B3DA00D4ADAA /* Screens */,
 				592569CB19D0AB9200D4ADAA /* AppDelegate.h */,
@@ -136,12 +144,8 @@
 		59256A2419D0B3DA00D4ADAA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				59256A2519D0B3E800D4ADAA /* AboutViewController.h */,
-				59256A2619D0B3E800D4ADAA /* AboutViewController.m */,
-				5919CCD319D1F41400E6CD27 /* AboutItem.h */,
-				5919CCD419D1F41400E6CD27 /* AboutItem.m */,
-				59A25BAA19D1F72D00A14372 /* AboutSection.h */,
-				59A25BAB19D1F72D00A14372 /* AboutSection.m */,
+				59A25BBA19D2C5D600A14372 /* Set Up */,
+				59A25BB919D2C5CE00A14372 /* About */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -153,6 +157,37 @@
 				59A25BAE19D1FE3800A14372 /* UIView+Borders.m */,
 			);
 			name = "UIView+";
+			sourceTree = "<group>";
+		};
+		59A25BB419D2C27500A14372 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				59A25BB519D2C29100A14372 /* setup.png */,
+				59A25BB619D2C29100A14372 /* setup@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		59A25BB919D2C5CE00A14372 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				59256A2519D0B3E800D4ADAA /* AboutViewController.h */,
+				59256A2619D0B3E800D4ADAA /* AboutViewController.m */,
+				5919CCD319D1F41400E6CD27 /* AboutItem.h */,
+				5919CCD419D1F41400E6CD27 /* AboutItem.m */,
+				59A25BAA19D1F72D00A14372 /* AboutSection.h */,
+				59A25BAB19D1F72D00A14372 /* AboutSection.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		59A25BBA19D2C5D600A14372 /* Set Up */ = {
+			isa = PBXGroup;
+			children = (
+				59A25BBB19D2C5E500A14372 /* SetUpViewController.h */,
+				59A25BBC19D2C5E500A14372 /* SetUpViewController.m */,
+			);
+			name = "Set Up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				592569D319D0AB9200D4ADAA /* Main.storyboard in Resources */,
+				59A25BB719D2C29100A14372 /* setup.png in Resources */,
 				592569D819D0AB9200D4ADAA /* LaunchScreen.xib in Resources */,
+				59A25BB819D2C29100A14372 /* setup@2x.png in Resources */,
 				592569D519D0AB9200D4ADAA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59A25BBD19D2C5E500A14372 /* SetUpViewController.m in Sources */,
 				592569D019D0AB9200D4ADAA /* ViewController.m in Sources */,
 				59A25BAC19D1F72D00A14372 /* AboutSection.m in Sources */,
 				592569CD19D0AB9200D4ADAA /* AppDelegate.m in Sources */,
