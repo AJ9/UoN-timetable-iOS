@@ -27,7 +27,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    
+    _usernameInput.delegate = self;
     
     //Set the TableView details:
     numberOfSections = 4;
@@ -145,6 +145,15 @@
 }
 
 
+#pragma mark textfield devs
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _usernameInput) {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
 
 /*
 #pragma mark - Navigation
@@ -155,5 +164,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)findModules:(id)sender {
+    [self textFieldShouldReturn:_usernameInput];
+    
+}
 
 @end

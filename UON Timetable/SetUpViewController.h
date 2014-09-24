@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetUpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SetUpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *usernameInput;
+- (IBAction)findModules:(id)sender;
 
 @end

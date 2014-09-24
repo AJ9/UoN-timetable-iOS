@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dcq-He-P3K">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -114,7 +113,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVt-dW-Nn4">
                                 <rect key="frame" x="16" y="93" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-oB-dNl">
                                 <rect key="frame" x="246" y="131" width="108" height="30"/>
@@ -124,6 +123,9 @@
                                 <state key="normal" title="Find Modules">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="findModules:" destination="ivY-3X-C0L" eventType="touchUpInside" id="npG-FH-GL5"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xec-Vm-VDc">
                                 <rect key="frame" x="0.0" y="169" width="600" height="2"/>
@@ -159,6 +161,7 @@
                     <tabBarItem key="tabBarItem" title="Set Up" image="setup.png" id="0JA-y4-SuF"/>
                     <connections>
                         <outlet property="tableView" destination="C25-3c-q3l" id="l6B-YX-9UI"/>
+                        <outlet property="usernameInput" destination="uVt-dW-Nn4" id="yu6-f4-vrC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdC-KC-BVH" userLabel="First Responder" sceneMemberID="firstResponder"/>

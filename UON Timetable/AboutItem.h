@@ -17,4 +17,6 @@ typedef NS_ENUM(NSInteger, AboutType) {
 AboutText,
 AboutButton
 };
+
+
 @end
